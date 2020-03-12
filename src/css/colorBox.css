@@ -1,0 +1,20 @@
+.ColorBox {
+	width: 25%;
+	height: 25%;
+	margin: 0 auto;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+}
+
+.ColorBox-name {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.ColorBox-more {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
