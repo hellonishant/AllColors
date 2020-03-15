@@ -4,8 +4,8 @@ import Palette from "./js/Palette";
 import seedColors from "./seedColors";
 import PaletteList from "./js/PaletteList";
 import { generatePalette } from "./js/colorsHelper";
-import "./App.css";
 import SingleColorPalette from "./js/singleColorPalette";
+import NewPaletteForm from "./js/newPaletteForm";
 
 function App() {
 	function findPalette(id) {
@@ -16,6 +16,7 @@ function App() {
 
 	return (
 		<Switch>
+			<Route exact path="/palette/new" render={() => <NewPaletteForm />} />
 			<Route
 				exact
 				path="/"
