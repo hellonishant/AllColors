@@ -2,6 +2,7 @@ import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { withStyles } from "@material-ui/styles";
 import IconButton from "@material-ui/core/IconButton";
+import { SortableElement } from "react-sortable-hoc";
 
 const styles = {
 	root: {
@@ -42,7 +43,7 @@ const styles = {
 	}
 };
 
-function NewColorBox(props) {
+const NewColorBox = SortableElement(props => {
 	const { classes, backgroundColor, deleteColor } = props;
 	return (
 		<div className={classes.root}>
@@ -57,6 +58,6 @@ function NewColorBox(props) {
 			</div>
 		</div>
 	);
-}
+});
 
 export default withStyles(styles)(NewColorBox);
