@@ -19,8 +19,7 @@ class ColorBox extends Component {
 	};
 
 	render() {
-		const { background, name, moreUrl, fullColorPalette } = this.props;
-		const classes = this.props.classes;
+		const { background, name, moreUrl, fullColorPalette, classes } = this.props;
 		return (
 			<CopyToClipboard text={background} onCopy={this.copyAnimationFunc}>
 				<div className={classes.ColorBox}>

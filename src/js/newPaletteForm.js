@@ -125,6 +125,18 @@ class NewPaletteForm extends Component {
 		});
 	};
 
+	addPalette = () => {
+		let newName = "New Palette Name";
+		let newPalette = {
+			paletteName: newName,
+			id: newName.toLowerCase().replace(/ /, "-"),
+			emoji: "",
+			colors: this.state.paletteColors
+		};
+		this.props.addNewPalette(newPalette);
+		this.props.history.push("/");
+	};
+
 	render() {
 		const { classes } = this.props;
 		let { open, paletteColors } = this.state;
@@ -133,6 +145,7 @@ class NewPaletteForm extends Component {
 				<CssBaseline />
 				<AppBar
 					position="fixed"
+					color="default"
 					className={clsx(classes.appBar, {
 						[classes.appBarShift]: open
 					})}
@@ -150,6 +163,13 @@ class NewPaletteForm extends Component {
 						<Typography variant="h6" noWrap>
 							Persistent drawer
 						</Typography>
+						<Button
+							variant="contained"
+							color="primary"
+							onClick={this.addPalette}
+						>
+							Add New Palette
+						</Button>
 					</Toolbar>
 				</AppBar>
 				<Drawer
