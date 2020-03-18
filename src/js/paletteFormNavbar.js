@@ -8,8 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Link } from "react-router-dom";
+import ModalDialogForm from "./ModalDialogForm";
 
 const drawerWidth = 240;
 
@@ -44,20 +44,15 @@ class paletteFormNavbar extends Component {
 		this.state = { currentPaletteName: "" };
 	}
 
-	componentDidMount() {
-		ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
-			this.props.palettes.every(
-				({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-			)
-		);
-	}
-
-	handleChange = event => {
-		this.setState({ [event.target.name]: event.target.value });
-	};
-
 	render() {
-		const { classes, handleDrawerOpen, addPalette, open } = this.props;
+		const {
+			classes,
+			handleDrawerOpen,
+			addPalette,
+			open,
+			palettes
+		} = this.props;
+
 		return (
 			<div className={classes.root}>
 				<CssBaseline />
@@ -83,24 +78,7 @@ class paletteFormNavbar extends Component {
 						</Typography>
 					</Toolbar>
 					<div className={classes.navBtn}>
-						<ValidatorForm
-							onSubmit={() => addPalette(this.state.currentPaletteName)}
-						>
-							<TextValidator
-								value={this.state.currentPaletteName}
-								label="Palette Name"
-								name="currentPaletteName"
-								onChange={this.handleChange}
-								validators={["required", "isPaletteNameUnique"]}
-								errorMessages={[
-									"Enter a Palette Name",
-									"Palette name is already taken"
-								]}
-							/>
-							<Button variant="contained" color="primary" type="submit">
-								Add New Palette
-							</Button>
-						</ValidatorForm>
+						<ModalDialogForm addPalette={addPalette} palettes={palettes} />
 						<Link to="/">
 							<Button variant="contained" color="secondary">
 								Go Back
