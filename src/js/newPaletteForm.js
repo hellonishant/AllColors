@@ -23,7 +23,8 @@ const styles = theme => ({
 	},
 	drawer: {
 		width: drawerWidth,
-		flexShrink: 0
+		flexShrink: 0,
+		height: "100vh"
 	},
 	drawerPaper: {
 		width: drawerWidth
@@ -51,6 +52,22 @@ const styles = theme => ({
 			duration: theme.transitions.duration.enteringScreen
 		}),
 		marginLeft: 0
+	},
+	container: {
+		width: "90%",
+		height: "100%",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+		margin: "auto"
+	},
+	buttons: {
+		width: "100%",
+		margin: "0.5rem"
+	},
+	button: {
+		width: "50%"
 	}
 });
 
@@ -82,9 +99,9 @@ class NewPaletteForm extends Component {
 		this.setState({ open: false });
 	};
 
-	handleChange = event => {
-		this.setState({ [event.target.name]: event.target.value });
-	};
+	// handleChange = event => {
+	// 	this.setState({ [event.target.name]: event.target.value });
+	// };
 
 	addNewPaletteColor = newColor => {
 		this.setState({
@@ -155,29 +172,33 @@ class NewPaletteForm extends Component {
 						</IconButton>
 					</div>
 					<Divider />
-					<Typography variant="h4">Color Picker</Typography>
-					<div>
-						<Button
-							variant="contained"
-							color="primary"
-							onClick={this.clearPalette}
-						>
-							Clear
-						</Button>
-						<Button
-							variant="contained"
-							color="secondary"
-							onClick={this.addRandomColor}
+					<div className={classes.container}>
+						<Typography variant="h4">Color Picker</Typography>
+						<div className={classes.buttons}>
+							<Button
+								variant="contained"
+								color="primary"
+								onClick={this.clearPalette}
+								className={classes.button}
+							>
+								Clear
+							</Button>
+							<Button
+								variant="contained"
+								color="secondary"
+								onClick={this.addRandomColor}
+								disabled={disabled}
+								className={classes.button}
+							>
+								Random
+							</Button>
+						</div>
+						<ColorPicker
 							disabled={disabled}
-						>
-							Random
-						</Button>
+							addNewPaletteColor={this.addNewPaletteColor}
+							paletteColors={this.state.paletteColors}
+						/>
 					</div>
-					<ColorPicker
-						disabled={disabled}
-						addNewPaletteColor={this.addNewPaletteColor}
-						paletteColors={this.state.paletteColors}
-					/>
 				</Drawer>
 				<main
 					className={clsx(classes.content, {
