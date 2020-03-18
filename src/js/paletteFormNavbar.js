@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { Link } from "react-router-dom";
 
 class paletteFormNavbar extends Component {
 	constructor(props) {
@@ -69,6 +70,11 @@ class paletteFormNavbar extends Component {
 							<Button variant="contained" color="primary" type="submit">
 								Add New Palette
 							</Button>
+							<Link to="/">
+								<Button variant="contained" color="secondary">
+									Go Back
+								</Button>
+							</Link>
 						</ValidatorForm>
 					</Toolbar>
 				</AppBar>
