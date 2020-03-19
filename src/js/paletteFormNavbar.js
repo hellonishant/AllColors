@@ -10,44 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import ModalDialogForm from "./ModalDialogForm";
-
-const drawerWidth = 240;
-
-const styles = theme => ({
-	root: {},
-	appBar: {
-		transition: theme.transitions.create(["margin", "width"], {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.leavingScreen
-		}),
-		display: "flex",
-		flexDirection: "row",
-		justifyContent: "space-between",
-		alignItems: "center"
-	},
-	appBarShift: {
-		width: `calc(100% - ${drawerWidth}px)`,
-		marginLeft: drawerWidth,
-		transition: theme.transitions.create(["margin", "width"], {
-			easing: theme.transitions.easing.easeOut,
-			duration: theme.transitions.duration.enteringScreen
-		})
-	},
-	menuButton: {
-		marginRight: theme.spacing(2)
-	},
-	navBtn: {
-		display: "flex",
-		justifyContent: "space-between",
-		alignItems: "center",
-		width: "13%",
-		height: "100%",
-		marginRight: "1rem",
-		"& a": {
-			textDecoration: "none"
-		}
-	}
-});
+import styles from "../styles/paletteFormNavbarStyles";
 
 class paletteFormNavbar extends Component {
 	constructor(props) {

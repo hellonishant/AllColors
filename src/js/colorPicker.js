@@ -5,10 +5,10 @@ import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
 const styles = {
-	root: {},
-	btn: {
-		width: "100%",
-		height: "50px"
+	root: {
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center"
 	}
 };
 
@@ -55,6 +55,7 @@ class colorPicker extends Component {
 				<ChromePicker
 					color={this.state.currentColor}
 					onChange={this.updateCurrentColor}
+					className={classes.Picker}
 				/>
 				<ValidatorForm
 					ref="form"
@@ -64,6 +65,7 @@ class colorPicker extends Component {
 					<TextValidator
 						className={classes.InputText}
 						label="Color Name"
+						fullWidth
 						onChange={this.handleChange}
 						variant="filled"
 						margin="normal"
@@ -79,6 +81,7 @@ class colorPicker extends Component {
 					/>
 					<Button
 						className={classes.btn}
+						fullWidth
 						margin="normal"
 						variant="contained"
 						color="default"
