@@ -10,7 +10,8 @@ import NewPaletteForm from "./js/newPaletteForm";
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { palettes: seedColors };
+		const palettes = JSON.parse(window.localStorage.getItem("palettes"));
+		this.state = { palettes: palettes || seedColors };
 	}
 
 	findPalette = id => {
@@ -20,7 +21,17 @@ class App extends Component {
 	};
 
 	addNewPalette = newPalette => {
-		this.setState({ palettes: [...seedColors, newPalette] });
+		this.setState(
+			{ palettes: [...seedColors, newPalette] },
+			this.syncToLocalStorage
+		);
+	};
+
+	syncToLocalStorage = () => {
+		window.localStorage.setItem(
+			"palettes",
+			JSON.stringify(this.state.palettes)
+		);
 	};
 
 	render() {
