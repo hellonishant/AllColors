@@ -22,7 +22,8 @@ const styles = theme => ({
 		}),
 		display: "flex",
 		flexDirection: "row",
-		justifyContent: "space-between"
+		justifyContent: "space-between",
+		alignItems: "center"
 	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
@@ -35,7 +36,17 @@ const styles = theme => ({
 	menuButton: {
 		marginRight: theme.spacing(2)
 	},
-	navBtn: {}
+	navBtn: {
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
+		width: "13%",
+		height: "100%",
+		marginRight: "1rem",
+		"& a": {
+			textDecoration: "none"
+		}
+	}
 });
 
 class paletteFormNavbar extends Component {
@@ -78,12 +89,16 @@ class paletteFormNavbar extends Component {
 						</Typography>
 					</Toolbar>
 					<div className={classes.navBtn}>
-						<ModalDialogForm addPalette={addPalette} palettes={palettes} />
 						<Link to="/">
-							<Button variant="contained" color="secondary">
+							<Button
+								variant="contained"
+								color="secondary"
+								className={classes.routeBtn}
+							>
 								Go Back
 							</Button>
 						</Link>
+						<ModalDialogForm addPalette={addPalette} palettes={palettes} />
 					</div>
 				</AppBar>
 			</div>
