@@ -6,6 +6,8 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
 
 class ModalDialogForm extends Component {
 	constructor(props) {
@@ -21,12 +23,24 @@ class ModalDialogForm extends Component {
 		);
 	}
 
-	handleClickOpen = () => {
-		this.setState({ open: true });
+	handleSaveButton = () => {
+		this.setState({ open: "name" });
 	};
 
 	handleClose = () => {
 		this.setState({ open: false });
+	};
+
+	handleNameSubmit = () => {
+		this.setState({ open: "emoji" });
+	};
+
+	handleEmojiSubmit = emoji => {
+		const paletteInfo = {
+			paletteName: this.state.currentPaletteName,
+			emoji: emoji.native
+		};
+		this.props.addPalette(paletteInfo);
 	};
 
 	handleFormChange = event => {
@@ -40,18 +54,23 @@ class ModalDialogForm extends Component {
 				<Button
 					variant="contained"
 					color="primary"
-					onClick={this.handleClickOpen}
+					onClick={this.handleSaveButton}
 				>
 					Save
 				</Button>
 				<Dialog
-					open={open}
+					open={open === "emoji"}
+					onClose={this.handleClose}
+					aria-labelledby="emoji-picker-dialog"
+				>
+					<Picker set="google" onSelect={this.handleEmojiSubmit} />
+				</Dialog>
+				<Dialog
+					open={open === "name"}
 					onClose={this.handleClose}
 					aria-labelledby="form-dialog-title"
 				>
-					<ValidatorForm
-						onSubmit={() => this.props.addPalette(currentPaletteName)}
-					>
+					<ValidatorForm onSubmit={this.handleNameSubmit}>
 						<DialogTitle id="form-dialog-title">Save Palette</DialogTitle>
 						<DialogContent>
 							<DialogContentText>
