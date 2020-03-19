@@ -20,6 +20,7 @@ class PaletteList extends Component {
 					<div className={classes.palettes}>
 						{palettes.map(oneColorPalette => (
 							<MiniPalette
+								handleDelete={this.props.deletePalette}
 								{...oneColorPalette}
 								key={oneColorPalette.id}
 								handleClick={() => this.handleClick(oneColorPalette.id)}

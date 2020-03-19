@@ -15,7 +15,7 @@ const styles = {
 	title: {
 		display: "flex",
 		justifyContent: "space-between",
-		fontFamily: "Nunito"
+		fontFamily: "Roboto"
 	},
 	colors: {
 		display: "block",
@@ -39,8 +39,8 @@ const styles = {
 		position: "absolute",
 		right: 0,
 		top: 0,
-		height: "30px",
-		width: "30px",
+		height: "20%",
+		width: "20%",
 		zIndex: 20,
 		color: "white",
 		background: red[500],
@@ -48,7 +48,10 @@ const styles = {
 		transition: "all 0.3s ease-in-out",
 		display: "flex",
 		justifyContent: "center",
-		alignItems: "center"
+		alignItems: "center",
+		"& svg": {
+			transform: "scale(1.2)"
+		}
 	}
 };
 
