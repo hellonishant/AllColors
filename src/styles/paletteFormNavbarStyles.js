@@ -34,6 +34,9 @@ const styles = theme => ({
 		"& a": {
 			textDecoration: "none"
 		}
+	},
+	hide: {
+		display: "none"
 	}
 });
 
