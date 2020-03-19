@@ -1,9 +1,16 @@
+import red from "@material-ui/core/colors/red";
+
 const styles = {
 	root: {
 		backgroundColor: "white",
 		borderRadius: "4px",
 		cursor: "pointer",
-		padding: "0.4rem"
+		padding: "0.4rem",
+		position: "relative",
+		overflow: "hidden",
+		"&:hover div": {
+			opacity: 1
+		}
 	},
 	title: {
 		display: "flex",
@@ -27,6 +34,21 @@ const styles = {
 		display: "inline-block",
 		position: "relative",
 		marginBottom: "-7px"
+	},
+	IconContainer: {
+		position: "absolute",
+		right: 0,
+		top: 0,
+		height: "30px",
+		width: "30px",
+		zIndex: 20,
+		color: "white",
+		background: red[500],
+		opacity: 0,
+		transition: "all 0.3s ease-in-out",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center"
 	}
 };
 
