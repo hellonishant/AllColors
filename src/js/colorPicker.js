@@ -61,6 +61,7 @@ class colorPicker extends Component {
 					ref="form"
 					onSubmit={this.handleAddNewPaletteColor}
 					onError={errors => console.log(errors)}
+					instantValidate={false}
 				>
 					<TextValidator
 						className={classes.InputText}
