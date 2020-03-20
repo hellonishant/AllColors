@@ -44,7 +44,7 @@ class PaletteList extends Component {
 									dialogOpen={this.dialogOpen}
 									{...oneColorPalette}
 									key={oneColorPalette.id}
-									handleClick={() => this.handleClick(oneColorPalette.id)}
+									handleClick={this.handleClick}
 								/>
 							</CSSTransition>
 						))}
