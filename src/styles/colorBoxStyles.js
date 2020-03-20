@@ -1,4 +1,6 @@
 import chroma from "chroma-js";
+import down from "../scalingHelper";
+
 export default {
 	DynamicText: {
 		color: props => {
@@ -21,6 +23,19 @@ export default {
 		"&:hover button": {
 			opacity: "1",
 			transition: "0.7s all ease"
+		},
+		[down("md")]: {
+			width: props => (props.fullColorPalette ? "25%" : "20%"),
+			height: props => (props.fullColorPalette ? "20%" : "50%")
+		},
+		[down("sm")]: {
+			width: props => (props.fullColorPalette ? "50%" : "50%"),
+			height: props => (props.fullColorPalette ? "50%" : "50%")
+		},
+		[down("xs")]: {
+			width: props => (props.fullColorPalette ? "100%" : "100%"),
+			height: props => (props.fullColorPalette ? "20%" : "20%"),
+			"& button": { opacity: 0 }
 		}
 	},
 	CopyButton: {

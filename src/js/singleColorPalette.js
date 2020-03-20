@@ -32,7 +32,7 @@ class SingleColorPalette extends Component {
 	};
 
 	render() {
-		const { palette, colorID, classes } = this.props;
+		const { palette, classes } = this.props;
 		const colorBoxes = this._shades.map(shade => (
 			<ColorBox
 				background={shade[this.state.formatType]}

@@ -1,11 +1,11 @@
+import down from "../scalingHelper";
 export default {
 	Palette: {
 		height: "100vh",
 		display: "flex",
-		flexDirection: "column",
-		overflow: "hidden"
+		flexDirection: "column"
 	},
 	PaletteColors: {
-		height: "90%"
+		minHeight: "90%"
 	}
 };

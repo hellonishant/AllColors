@@ -1,9 +1,9 @@
+import down from "../scalingHelper";
 export default {
 	Palette: {
 		height: "100vh",
 		display: "flex",
-		flexDirection: "column",
-		overflow: "hidden"
+		flexDirection: "column"
 	},
 	PaletteColors: {
 		height: "90%"
@@ -17,8 +17,16 @@ export default {
 		position: "relative",
 		marginBottom: "-0.5rem",
 		textTransform: "uppercase",
-		backgroundColor: "#000"
+		backgroundColor: "#000",
+		[down("xs")]: {
+			width: "100%",
+			height: "20%"
+		},
+		[down("sm")]: {
+			width: "50%"
+		}
 	},
+
 	BackButton: {
 		position: "absolute",
 		width: "100px",

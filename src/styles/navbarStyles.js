@@ -1,9 +1,13 @@
+import down from "../scalingHelper";
 export default {
 	Navbar: {
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "flex-start",
-		height: "6vh"
+		height: "6vh",
+		[down("xs")]: {
+			height: "10vh"
+		}
 	},
 	logo: {
 		marginRight: "15px",
