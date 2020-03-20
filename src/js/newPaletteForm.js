@@ -12,6 +12,7 @@ import arrayMove from "array-move";
 import PaletteFormNavbar from "./paletteFormNavbar";
 import ColorPicker from "./colorPicker";
 import styles from "../styles/newPaletteFormStyles";
+import seedColors from "../seedColors";
 
 class NewPaletteForm extends Component {
 	static defaultProps = {
@@ -21,7 +22,7 @@ class NewPaletteForm extends Component {
 		super(props);
 		this.state = {
 			open: false,
-			paletteColors: this.props.palettes[0].colors
+			paletteColors: seedColors[0].colors
 		};
 		this._allColors = [];
 	}
@@ -151,6 +152,7 @@ class NewPaletteForm extends Component {
 				>
 					<div className={classes.drawerHeader} />
 					<DraggableColorList
+						distance={20}
 						paletteColors={paletteColors}
 						deleteColor={this.deleteColor}
 						axis="xy"

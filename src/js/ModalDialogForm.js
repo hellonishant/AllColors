@@ -41,6 +41,7 @@ class ModalDialogForm extends Component {
 			emoji: emoji.native
 		};
 		this.props.addPalette(paletteInfo);
+		this.setState({ open: false });
 	};
 
 	handleFormChange = event => {
