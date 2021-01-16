@@ -1,4 +1,3 @@
-import down from "../scalingHelper";
 export default {
 	Palette: {
 		height: "100vh",
